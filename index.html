@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<style>
+	h1 {font-family: 'Times New Roman',serif;text-align: center;}
+	table {text-align: center;}
+	table, th, td {
+		border:1px solid black;}
+	table {margin-left: auto; margin-right: auto;}
+	img {display: block;margin-left: auto; margin-right: auto;}
+	pre {font-family: 'Times New Roman', serif; width: 600px; margin-left: auto; margin-right: auto;}
+	p {font-family: 'Times New Roman', serif;text-align: center;}
+	body {font-family: 'Times New Roman',serif;background-color: powderblue;}
+	article {text-align: center;}
+	#two {text-align: center;}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  margin-left:0px;
+  margin-right:0px;
+}
+  
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table.style2 {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: center;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+	<title>Element Compression Report</title> 
+	<link rel="icon" href="Toray.png">
+}
+
+table.style1 {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+  border: 1px solid #ddd;
+}
+</style>
+</head>
+<body>
+
+<h1>Element Compression Report</h1>
+
+<pre>
+<h2>General:</h2>
+-	Net length equal to folded membrane length 
+-	Tricot: first leaf typically 10” longer than remaining (to account for wrapping around CT) 
+	o	Why 10”?
+		>	Could we set a certain # for wraps around the CT circumference
+		>	Currently 3-4
+	o	Avoid tricot tail if possible (low-cost way of increasing OD)
+-	Tricot pack spacing:  calculated as CT circumference / # leaves
+-	Glue line thickness goals (hand rolled table):
+	o	4in
+		>	Side Seal (target): 2”
+		>	End Seal (target): 4”
+	o	8in
+		>	Side Seal (target): 1”
+		>	End Seal (target): 2.5”
+-	Membrane thickness
+	o	MMF-0001 and 0002 (min – nom – max): 5.5 – 6.5 -7.5 mil
+	o	MNF-0001 (min – nom – max): 6 – 7 -7.5 mil
+	o	MUF-10K, 5K, 5KHR (min – nom – max): 7 – 7.5 -9 mil
+	o	RO (min – nom – max): 5 mil
+<h2> Semi Auto Specialty Table Capabilities:</h2>
+-	Max membrane leaf length (folded): 44.5”
+-	Max width: 40”
+
+<h2> Compression Table (Inches): (assuming 6 mil RO mem): </h2>
+</pre>
+<table class="style1">
+	<tr>
+		<th>Net (mm,type) </td>
+		<th>3838/40XX/43XX </td>
+		<th>6338/6438 </td>
+		<th>8038/7838/8040 </td>
+		<th>8438 </td>
+	</tr>
+
+	<tr>
+		<th>2015 (0.7 HDPE) </th>
+		<td>0.125 </td>
+		<td> </td>
+		<td>0.3 </td>
+		<td>  </td>
+	</tr>
+
+	<tr>
+		<th>2011 (2.032 PP) </th>
+		<td>-0.1 - -0.09 </td>
+		<td>0.05 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<th>2009 (1.651 PP) </th>
+		<td>0.025 </td>
+		<td>0.075 </td>
+		<td>0.125 </td>
+		<td> </td>
+	</tr>
+
+	<tr>
+		<th>2007 (1.168 PP) </th>
+		<td rowspan="2">0.05 </td>
+		<td rowspan="2">0.1 </td>
+		<td rowspan="2">0.25 </td>
+		<td rowspan="2">0.35 </td>
+	</tr>
+
+	<tr>
+		<th>2006 (0.8 PP) </th>
+	</tr>
+</table>
+
+
+<p>
+
+
+<script>
+function pic(sw){
+var x;
+if (sw==1) {	
+	showImageButton = document.getElementById("show-image-button");
+	myImage = document.getElementById('my-image');
+	showImageButton.addEventListener("click", ()=>{
+		myImage.style.display = "block";
+	});
+} else {
+	myImage.style.display = "none";
+}}
+
+</script>
+
+<button id="show-image-button" onclick= "pic(1)">Show</button>
+<button id="show-image-button" onclick= "pic(0)">Hide</button>
+<img id="my-image" src="element.png" style="display: none;">
+
+</p>
+
+<article>
+ <div class="container">
+	<label for="CT-D"> CT Diam (in) </label>
+        <input id="CT-D" type="number" placeholder="CT Diam">
+	<label for="Tricot-T"> Tricot Thickness (in)</label>
+        <input id="Tricot-T" type="number" placeholder="Tricot Thickness(in)"> 
+	<label for="Tricot-SL"> Tricot Short Leave (in) </label>
+ 	<input id="Tricot-SL" type="number" placeholder="Tricot Short Leave(in)"><br><br>
+	<label for="Tricot-Lead"> Tricot Lead (in) </label>
+ 	<input id="Tricot-Lead" type="number" placeholder="Tricot Lead(in)">
+	<label for="Net-T"> Net Thickness (in) </label>
+ 	<input id="Net-T" type="number" placeholder="Net Thickness(in)">
+	<label for="Net-L"> Net Length (in) </label>
+ 	<input id="Net-L" type="number" placeholder="Net Length(in)"><br><br>
+	<label for="Mem-T"> Mem Thickness (in) </label>
+ 	<input id="Mem-T" type="number" placeholder="Mem Thickness(in)">
+	<label for="Mem-FL"> Mem Folded Length (in) </label>
+ 	<input id="Mem-FL" type="number" placeholder="Mem Folded Length(in)">
+	<label for="Leaves"> # of Leaves </label>
+ 	<input id="Leaves" type="number" placeholder="# of leaves">
+        <br><br>
+	<label for="Ideal-OD">Ideal OD (in)</label>
+	<input id="Ideal-OD" type="number" placeholder="Ideal OD (in)">
+	<br><br>
+        <button id="OD" onclick="OD()">OD</button>
+        <br /><br />
+
+        Your OD is: <b><span id="final-answer"></span></b> 
+	<br><br>
+	Your Compression is: <b><span id="final-answer2"></span></b>  <br>
+    </div>
+<br><br>
+
+<h2> Helpful Information</h2>
+<script>
+function OD() {
+   	let CTD= Number(document.getElementById("CT-D").value);
+	let TricotT = Number(document.getElementById("Tricot-T").value);
+	let TricotSL = Number(document.getElementById("Tricot-SL").value);
+	let TricotLe = Number(document.getElementById("Tricot-Lead").value);
+	let NetT = Number(document.getElementById("Net-T").value);
+	let NetL = Number(document.getElementById("Net-L").value);
+	let MemT = Number(document.getElementById("Mem-T").value);
+	let MemFL = Number(document.getElementById("Mem-FL").value);	
+	let Leaves = Number(document.getElementById("Leaves").value);
+	let IdealOD = Number(document.getElementById("Ideal-OD").value);
+	
+    	cross = 3.14 * Math.pow((CTD / 2),2) + (NetT * NetL * Leaves) + (MemT * 2 * MemFL * Leaves) + (TricotT * TricotSL * Leaves) + (TricotT * TricotLe);
+	finalAnswer = Math.sqrt(cross / 3.14) * 2;
+	finalOD = finalAnswer;
+	comp = finalOD - IdealOD;
+    	
+	document.getElementById("final-answer").innerHTML = finalAnswer.toFixed(2);
+	
+	document.getElementById("final-answer2").innerHTML = comp.toFixed(3);
+	
+};
+
+</script>
+
+</article>
+
+<div class="row">
+	<div class="column">
+		<table class="style2">
+			<tr>
+				<th> Net Model </th>
+				<th> Net Type </th>
+				<th> Net Thickness (mm)</th>
+				<th> Net Thickness (in)</th>
+			</tr>
+			<tr>
+				<td>2006</td>
+				<td>PP</td>
+				<td>0.8</td>
+				<td>0.0315</td>
+			</tr>
+			<tr>
+				<td>2007</td>
+				<td>PP</td>
+				<td>1.168</td>
+				<td>0.0460</td>
+			</tr>
+			<tr>
+				<td>2009</td>
+				<td>PP</td>
+				<td>1.651</td>
+				<td>0.065</td>
+			</tr>
+			<tr>
+				<td>2011</td>
+				<td>PP</td>
+				<td>2.032</td>
+				<td>0.08</td>
+			</tr>
+			<tr>
+				<td>2015</td>
+				<td>HDPE</td>
+				<td>0.7</td>
+				<td>0.0276</td>				
+		</table>
+	</div>
+	<div class="column">
+		<table class="style2">
+			<tr>
+				<th> CT Model </th>
+				<th> CT Diameter (in) </th>
+			</tr>
+			<tr>
+				<td>4106</td>
+				<td>1.05</td>
+			</tr>
+			<tr>
+				<td>4152</td>
+				<td>1.5</td>
+			</tr>
+			<tr>
+				<td>4112</td>
+				<td>0.875</td>
+			</tr>
+			<tr>
+				<td>4153</td>
+				<td>1.5</td>
+			</tr>
+			<tr>
+				<td>4107</td>
+				<td>1.05</td>
+			</tr>
+			<tr>
+				<td>4154</td>
+				<td>1.05</td>
+			</tr>
+		</table>
+	</div>
+<div class="column">
+		<table class="style2">
+			<tr>
+				<th> Membrane </th>
+				<th> Membrane Thickness (in) </th>
+			</tr>
+			<tr>
+				<td>MUF-10k</td>
+				<td>0.0075</td>
+			</tr>
+			<tr>
+				<td>RO</td>
+				<td>0.006</td>
+			</tr>
+			<tr>
+				<td>MNF</td>
+				<td>7</td>
+			</tr>
+			<tr>
+				<td>MMF</td>
+				<td>6.5</td>
+			</tr>
+		</table>
+	</div>
+<div class="column">
+		<table class="style2">
+			<tr>
+				<th> Tricot </th>
+				<th> Tricot Thickness (in) </th>
+			</tr>
+			<tr>
+				<td>3010/3004</td>
+				<td>0.01</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+
+<br><br><br><br>
+
+</body>
+</html>
