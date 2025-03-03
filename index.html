@@ -53,7 +53,7 @@ table.style2 {
 }
 th, td {
   text-align: center;
-  padding: 16px;
+  padding: 10px;
 }
 
 tr:nth-child(even) {
@@ -65,15 +65,10 @@ tr:nth-child(even) {
 table.style1 {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 50%;
+  width: 30%;
   border: 1px solid #ddd;
 }
 
-@media (max-width: 600px) {
-  table.style1, thead, tbody, th, td, tr {
-    display: block;
-  }
-}
 
 </style>
 </head>
@@ -224,6 +219,9 @@ if (sw==1) {
         Your OD is: <b><span id="final-answer"></span></b> 
 	<br><br>
 	Your Compression is: <b><span id="final-answer2"></span></b>  <br>
+	<br>
+	<p><span id="pic"></span></p>
+	<br>
     </div>
 <br><br>
 
@@ -244,13 +242,36 @@ function OD() {
     	cross = 3.14 * Math.pow((CTD / 2),2) + (NetT * NetL * Leaves) + (MemT * 2 * MemFL * Leaves) + (TricotT * TricotSL * Leaves) + (TricotT * TricotLe);
 	finalAnswer = Math.sqrt(cross / 3.14) * 2;
 	finalOD = finalAnswer;
-	comp = finalOD - IdealOD;
-    	
+	let comp = finalOD - IdealOD;
+
+
 	document.getElementById("final-answer").innerHTML = finalAnswer.toFixed(2);
 	
 	document.getElementById("final-answer2").innerHTML = comp.toFixed(3);
 	
-};
+	let outputDiv = document.getElementById("pic");
+
+	if (comp<0) {
+		outputDiv.innerHTML = `
+			<img src ="MJ.png">
+			<p>*The Compression is less than 0*</p>
+			<p>Try one of these:</p> 
+			<ul class="myUL">
+				<li>Increase leave lengths</li>
+				<li>Increase # of leaves</li>
+				<li>Make sure the Ideal OD is correct</li>
+			</ul>
+		`;
+		
+	} else {
+		outputDiv.innerHTML = "";
+	}
+
+	
+	
+
+	
+}
 
 </script>
 
