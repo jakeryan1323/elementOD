@@ -5,12 +5,12 @@
 	<style>
 	h1 {font-family: 'Times New Roman',serif;text-align: center;}
 	h2 {font-family: 'Times New Roman',serif;text-align: center;}
+	ul {font-family: 'Times New Roman',serif;}
 	table {text-align: center;}
 	table, th, td {
 		border:1px solid black;}
 	table {margin-left: auto; margin-right: auto;}
 	img {display: block;margin-left: auto; margin-right: auto;}
-	pre {font-family: 'Times New Roman', serif; margin-left: auto; margin-right: auto;width: 600px;}
 	p {font-family: 'Times New Roman', serif;text-align: center;}
 	body {font-family: 'Times New Roman',serif;background-color: powderblue;}
 	article {text-align: center;}
@@ -37,7 +37,14 @@
   clear: both;
   display: table;
 }
+div.lists {
+  text-align: center;
+}
 
+ul.myUL {
+  display: inline-block;
+  text-align: left;
+}
 table.style2 {
   border-collapse: collapse;
   border-spacing: 0;
@@ -70,32 +77,46 @@ table.style1 {
 <h1>Element Compression Report</h1>
 
 <h2>General:</h2>
-<pre>
--	Net length equal to folded membrane length 
--	Tricot: first leaf typically 10” longer than remaining (to account for wrapping around CT) 
-	o	Why 10”?
-		>	Could we set a certain # for wraps around the CT circumference
-		>	Currently 3-4
-	o	Avoid tricot tail if possible (low-cost way of increasing OD)
--	Tricot pack spacing:  calculated as CT circumference / # leaves
--	Glue line thickness goals (hand rolled table):
-	o	4in
-		>	Side Seal (target): 2”
-		>	End Seal (target): 4”
-	o	8in
-		>	Side Seal (target): 1”
-		>	End Seal (target): 2.5”
--	Membrane thickness
-	o	MMF-0001 and 0002 (min – nom – max): 5.5 – 6.5 -7.5 mil
-	o	MNF-0001 (min – nom – max): 6 – 7 -7.5 mil
-	o	MUF-10K, 5K, 5KHR (min – nom – max): 7 – 7.5 -9 mil
-	o	RO (min – nom – max): 5 mil
-</pre>
+<div class="lists">
+<ul class="myUL">
+	<li>Net length equal to folded membrane length</li>
+	<li>Tricot: first leaf typically 10” longer than remaining (to account for wrapping around CT)</li>
+		<ul>
+		<li>Why 10”?</li>
+			<ul>
+				<li>Could we set a certain # for wraps around the CT circumference</li>
+				<li>Currently 3-4</li>
+			</ul>
+		<li> Avoid tricot tail if possible (low-cost way of increasing OD)</li>
+		</ul>
+	<li>Tricot pack spacing:  calculated as CT circumference / # leaves</li>
+	<li>Glue line thickness goals (hand rolled table):</li>
+		<ul>
+		<li>4in</li>
+			<ul>
+			<li>Side Seal (target): 2”</li>
+			<li>End Seal (target): 4”</li>
+			</ul>
+		<li>8in</li>
+			<ul>
+			<li>Side Seal (target): 1”</li>
+			<li>End Seal (target): 2.5”</li>
+			</ul>
+		</ul>
+	<li>Membrane thickness</li>
+		<ul>
+		<li>MMF-0001 and 0002 (min – nom – max): 5.5 – 6.5 -7.5 mil</li>
+		<li>MNF-0001 (min – nom – max): 6 – 7 -7.5 mil</li>
+		<li>MUF-10K, 5K, 5KHR (min – nom – max): 7 – 7.5 -9 mil</li>
+		<li>RO (min – nom – max): 5 mil</li>
+		</ul>
 <h2> Semi Auto Specialty Table Capabilities:</h2>
-<pre>
--	Max membrane leaf length (folded): 44.5”
--	Max width: 40”
-</pre>
+
+	<li>Max membrane leaf length (folded): 44.5”</li>
+	<li>Max width: 40”</li>
+</ul>
+
+
 <h2> Compression Table (Inches): (assuming 6 mil RO mem): </h2>
 
 <table class="style1">
