@@ -27,7 +27,7 @@
   
 .column {
   float: left;
-  width: 25%;
+  width: auto;
   padding: 5px;
 }
 
@@ -43,9 +43,6 @@ table.style2 {
   border-spacing: 0;
   width: 100%;
   border: 1px solid #ddd;
-}
-.column .table-responsive {
-  margin-bottom: 0;  
 }
 th, td {
   text-align: center;
@@ -63,6 +60,14 @@ table.style1 {
   border-spacing: 0;
   width: 50%;
   border: 1px solid #ddd;
+
+}
+	/* Media query for small screens */ 
+	@media (min-width: 768px) { 
+		table.style2 { 
+			width: 100%; 
+			margin-bottom: 0; 
+		} 
 }
 </style>
 </head>
