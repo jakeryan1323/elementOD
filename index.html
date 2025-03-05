@@ -295,8 +295,16 @@ if (sw==1) {
 	<label for="Net-L" id="Net-L-label"> Net Length (in) </label>
  	<input id="Net-L" type="number" placeholder="Net Length(in)"><br>
 
-	<label for="Mem-T" id="Mem-T-label"> Mem Thickness (in) </label>
- 	<input id="Mem-T" type="number" placeholder="Mem Thickness(in)"><br>
+
+	<label for="Mem-T">Mem Type</label>
+	<select id="Mem-T" type="number" name="mems">
+		<option>Choose one</option>
+		<option value="0.0075">MUF-10K</option>
+		<option value="0.005">RO (5)</option>
+		<option value="0.006">RO (6)</option>
+		<option value="0.007">MNF</option>
+		<option value="0.0065">MMF</option>
+	</select> <br>
 
 	<label for="Mem-FL" id="Mem-FL-label"> Mem Folded Length (in) </label>
  	<input id="Mem-FL" type="number" placeholder="Mem Folded Length(in)"><br>
@@ -326,7 +334,14 @@ if (sw==1) {
 
 function OD() {
    	let CTD= Number(document.getElementById("CT-D").value);
-	let TricotT = Number(document.getElementById("Tricot-T").value);
+	let TricotT;
+		if (document.getElementById("Tricot-T").value === "other") {
+        		// Use the value from the custom input field if "Other" is selected
+        		TricotT = Number(document.getElementById("Tricot-T-input").value);
+   		} else {
+       			// Use the selected value from the dropdown if "Other" is not selected
+        		TricotT = Number(document.getElementById("Tricot-T").value);
+    		}
 	let TricotSL = Number(document.getElementById("Tricot-SL").value);
 	let TricotLe = Number(document.getElementById("Tricot-Lead").value);
 	let NetT = Number(document.getElementById("Net-T").value);
@@ -463,11 +478,11 @@ function OD() {
 			</tr>
 			<tr>
 				<td>MNF</td>
-				<td>7</td>
+				<td>0.007</td>
 			</tr>
 			<tr>
 				<td>MMF</td>
-				<td>6.5</td>
+				<td>0.0065</td>
 			</tr>
 		</table>
 	</div>
