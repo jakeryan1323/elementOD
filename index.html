@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head> 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 	h1 {font-family: 'Times New Roman',serif;text-align: center;}
@@ -13,7 +14,44 @@
 	img {display: block;margin-left: auto; margin-right: auto;}
 	p {font-family: 'Times New Roman', serif;text-align: center;}
 	body {font-family: 'Times New Roman',serif;background-color: powderblue;}
-	article {text-align: center;}
+
+	
+
+		.container {
+			width: 500px;
+			padding: 20px;
+			border-radius: 8px;
+			background-color: white;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			margin-left:auto;margin-right:auto;
+
+
+		}
+
+		.form {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.form div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		label {
+			width: 200px;
+			text-align: right;
+			margin-right: 10px;
+		}
+
+		input,select {
+ 			flex: 2; /* Input takes up more space than the label */
+   			padding: 8px;
+    			margin-left: 10px; /* Add some space between the label and the input */
+    			width: 50%; /* Ensures input takes up full width of the container */
+		}
 
 
 * {
@@ -28,7 +66,7 @@
 .column {
   float: left;
   width: auto;
-  padding: 30px;
+  padding: 25px;
 
 }
 
@@ -194,30 +232,86 @@ if (sw==1) {
 
 <article>
  <div class="container">
-	<label for="CT-D"> CT Diam (in) </label>
-        <input id="CT-D" type="number" placeholder="CT Diam">
-	<label for="Tricot-T"> Tricot Thickness (in)</label>
-        <input id="Tricot-T" type="number" placeholder="Tricot Thickness(in)"> <br><br>
-	<label for="Tricot-SL"> Tricot Short Leave (in) </label>
- 	<input id="Tricot-SL" type="number" placeholder="Tricot Short Leave(in)">
-	<label for="Tricot-Lead"> Tricot Lead (in) </label>
- 	<input id="Tricot-Lead" type="number" placeholder="Tricot Lead(in)"><br><br>
-	<label for="Net-T"> Net Thickness (in) </label>
- 	<input id="Net-T" type="number" placeholder="Net Thickness(in)">
-	<label for="Net-L"> Net Length (in) </label>
- 	<input id="Net-L" type="number" placeholder="Net Length(in)"><br><br>
-	<label for="Mem-T"> Mem Thickness (in) </label>
- 	<input id="Mem-T" type="number" placeholder="Mem Thickness(in)">
-	<label for="Mem-FL"> Mem Folded Length (in) </label>
- 	<input id="Mem-FL" type="number" placeholder="Mem Folded Length(in)"><br><br>
-	<label for="Leaves"> # of Leaves </label>
- 	<input id="Leaves" type="number" placeholder="# of leaves">
+	<div class="box">
+	<div class="form">
+		<p id="formp">
+
+	<label for="CT-D" id="CT-D-label">CT Type</label>
+	<select id="CT-D" type="number" name="CTD">
+		<option>Choose one</option>
+		<option value="1.05">4106</option>
+		<option value="1.5">4152</option>
+		<option value="0.875">4112</option>
+		<option value="1.5">4153</option>
+		<option value="1.05">4107</option>
+		<option value="1.05">4154</option>
+	</select> <br>
+
+
+	<label for="Tricot-T" id="Tricot-T-label">Tricot Type</label>
+	<select id="Tricot-T" type="number" name="tricot">
+  		<option>Choose one</option>
+   		<option value="0.01">3010</option>
+    		<option value="0.01">3004</option>
+    		<option value="other">Other</option>
+	</select> 
+		<label id="Tricot-T-input-label" style="display:none;"><br>Enter Tricot Thickness:</label>
+		<input id="Tricot-T-input" type="number" style="display:none;" placeholder="Enter Tricot Thickness">
+
+<script>
+    // jQuery to handle showing and hiding of the extra input field
+    $('#Tricot-T').change(function(){
+        // Check if "Other" is selected
+        if($('#Tricot-T').val() === "other"){
+            $('#Tricot-T-input-label').show();  // Show label
+            $('#Tricot-T-input').show();  // Show input field
+	    $('#Tricot-T-input').val('');  // Reset input field value
+        } else {
+            $('#Tricot-T-input-label').hide();  // Hide label
+            $('#Tricot-T-input').hide();  // Hide input field
+        }
+    });
+</script>
+
+	<br>
+
+	<label for="Tricot-SL" id="Tricot-SL-label"> Tricot Short Leave (in) </label>
+ 	<input id="Tricot-SL" type="number" placeholder="Tricot Short Leave(in)"><br>
+
+	<label for="Tricot-Lead" id="Tricot-Lead-label"> Tricot Lead (in) </label>
+ 	<input id="Tricot-Lead" type="number" placeholder="Tricot Lead(in)"><br>
+
+	<label for="Net-T">Net Type</label>
+	<select id="Net-T" type="number" name="nets">
+		<option>Choose one</option>
+		<option value="0.0315">2006</option>
+		<option value="0.0460">2007</option>
+		<option value="0.065">2009</option>
+		<option value="0.08">2011</option>
+		<option value="0.0276">2015</option>
+	</select> <br>
+
+
+	<label for="Net-L" id="Net-L-label"> Net Length (in) </label>
+ 	<input id="Net-L" type="number" placeholder="Net Length(in)"><br>
+
+	<label for="Mem-T" id="Mem-T-label"> Mem Thickness (in) </label>
+ 	<input id="Mem-T" type="number" placeholder="Mem Thickness(in)"><br>
+
+	<label for="Mem-FL" id="Mem-FL-label"> Mem Folded Length (in) </label>
+ 	<input id="Mem-FL" type="number" placeholder="Mem Folded Length(in)"><br>
+
+	<label for="Leaves" id="Leaves-label"> # of Leaves </label>
+ 	<input id="Leaves" type="number" placeholder="# of leaves"><br>
+
 	<label for="Ideal-OD">Ideal OD (in)</label>
 	<input id="Ideal-OD" type="number" placeholder="Ideal OD (in)">
+		</p>
+	</div>
+	</div>
 	<br><br>
-        <button id="OD" onclick="OD()">OD</button>
+        <button type="button" id="OD" onclick="OD()">Calculate OD</button>
         <br /><br />
-
         Your OD is: <b><span id="final-answer"></span></b> 
 	<br><br>
 	Your Compression is: <b><span id="final-answer2"></span></b>  <br>
@@ -229,6 +323,7 @@ if (sw==1) {
 
 <h2> Helpful Information</h2>
 <script>
+
 function OD() {
    	let CTD= Number(document.getElementById("CT-D").value);
 	let TricotT = Number(document.getElementById("Tricot-T").value);
