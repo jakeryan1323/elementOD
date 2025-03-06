@@ -4,7 +4,12 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
-	h1 {font-family: 'Times New Roman',serif;text-align: center;}
+	.header {
+    		padding: 5px;
+    		text-align: center;}
+	h1 {
+    		font-family: 'Times New Roman', serif;
+    		text-align: center;}
 	h2 {font-family: 'Times New Roman',serif;text-align: center;}
 	ul {font-family: 'Times New Roman',serif;}
 	table {text-align: center;}
@@ -13,7 +18,7 @@
 	table {margin-left: auto; margin-right: auto;}
 	img {display: block;margin-left: auto; margin-right: auto;}
 	p {font-family: 'Times New Roman', serif;text-align: center;}
-	body {font-family: 'Times New Roman',serif;background-color: powderblue;}
+	body {font-family: 'Times New Roman',serif; background: linear-gradient(to bottom, white 100px, powderblue 100px);}
 
 	
 
@@ -118,7 +123,9 @@ table.style1 {
 </head>
 <body>
 
+<div class="header">
 <h1>Element Compression Report</h1>
+</div>
 
 <h2>General:</h2>
 <div class="lists">
@@ -333,7 +340,6 @@ if (sw==1) {
     </div>
 <br><br>
 
-<h2> Helpful Information</h2>
 <script>
 
 function OD() {
@@ -393,6 +399,11 @@ function OD() {
 
 </article>
 
+<button onclick="toggleTables(true)">Show Extra Info</button>
+<button onclick="toggleTables(false)">Hide Extra Info</button>
+
+<div id="tables-container" style="display: none;">
+<h2> Helpful Information</h2>
 <div class="row">
 	<div class="column">
 		<table class="style2">
@@ -503,7 +514,19 @@ function OD() {
 		</table>
 	</div>
 </div>
+</div>
 
+<script>
+function toggleTables(show) {
+    var tablesContainer = document.getElementById("tables-container");
+    
+    if (show) {
+        tablesContainer.style.display = "block";
+    } else {
+        tablesContainer.style.display = "none";
+    }
+}
+</script>
 
 <br><br><br><br>
 
