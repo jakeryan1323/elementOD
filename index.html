@@ -120,11 +120,13 @@ table.style1 {
   border-collapse: collapse;
   border-spacing: 0;
   width:100%;
-  max-width: 100%;
+  max-width: 600px;
   min-width: 200px;
   border: 1px solid #ddd;
 }
-
+.table-container {
+    overflow-x: auto; /* Horizontal scrolling */
+}
 
 </style>
 <title>Element Compression Report</title> 
@@ -179,6 +181,7 @@ table.style1 {
 
 <h2> Compression Table (Inches): (assuming 6 mil RO mem): </h2>
 
+<div class="table-container">
 <table class="style1">
 	<tr>
 		<th>Net (mm,type) </td>
@@ -224,7 +227,7 @@ table.style1 {
 		<th>2006 (0.8 PP) </th>
 	</tr>
 </table>
-
+</div>
 <br><br>
 
 
