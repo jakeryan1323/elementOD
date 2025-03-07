@@ -20,7 +20,7 @@
 	p {font-family: 'Times New Roman', serif;text-align: center;}
 	body {font-family: 'Times New Roman',serif; background: linear-gradient(to bottom, white 6%, powderblue 6%);}
 
-	}
+	
 
 		@media screen and (max-width: 600px) {
     		table.style1 {
@@ -342,11 +342,13 @@ table.style1 {
 	</div>
 	</div>
 	<br><br>
-        <button type="button" id="OD" onclick="OD()">Calculate OD</button>
+        <button type="button" id="OD" onclick="OD()")>Calculate OD</button>
         <br /><br />
         Your OD is: <b><span id="final-answer"></span></b> 
 	<br><br>
 	Your Compression is: <b><span id="final-answer2"></span></b>  <br>
+	<br>
+	Your Ideal Compression is: <b><span id="IC"></span></b>  <br>
 	<br>
 	<p><span id="pic"></span></p>
 	<br>
@@ -379,6 +381,55 @@ function OD() {
 	finalOD = finalAnswer;
 	let comp = finalOD - IdealOD;
 
+	let netElement = document.getElementById("Net-T");
+    let NetN = netElement.options[netElement.selectedIndex].text; // Get Net type name
+	
+	let selectElement = document.getElementById("CT-D");
+	let CTN = selectElement.options[selectElement.selectedIndex].text;
+	let idealcomp = 0;
+	
+	if ((CTN == "4152" && NetN == "2006") || (CTN == "4152" && NetN == "2007")){
+		idealcomp = 0.25;
+	}
+	if (CTN == "4152" && NetN == "2009"){
+		idealcomp = 0.125;
+	}
+	if (CTN == "4152" && NetN == "2011"){
+		idealcomp = "N/A";
+	}
+	if (CTN == "4152" && NetN == "2015"){
+		idealcomp = 0.3;
+	}
+	if ((CTN == "4153" && NetN == "2006") || (CTN == "4153" && NetN == "2007")){
+		idealcomp = 0.1;
+	}
+	if (CTN == "4153" && NetN == "2009"){
+		idealcomp = 0.075;
+	}
+	if (CTN == "4153" && NetN == "2011"){
+		idealcomp = 0.05;
+	}
+	if (CTN == "4153" && NetN == "2015"){
+		idealcomp = "N/A";
+	}
+	if ((CTN == "4106" && NetN == "2006") || (CTN == "4106" && NetN == "2007") || (CTN == "4107" && NetN == "2007") || (CTN == "4107" && NetN == "2006") || (CTN == "4112" && NetN == "2007") || (CTN == "4112" && NetN == "2006") || (CTN == "4154" && NetN == "2007") || (CTN == "4154" && NetN == "2006")){
+		idealcomp = 0.05;
+	}
+	if ((CTN == "4106" && NetN == "2009") || (CTN == "4107" && NetN == "2009") || (CTN == "4112" && NetN == "2009") || (CTN == "4154" && NetN == "2009")){
+		idealcomp = 0.025;
+	}
+	if ((CTN == "4106" && NetN == "2011") || (CTN == "4107" && NetN == "2011") || (CTN == "4112" && NetN == "2011") || (CTN == "4154" && NetN == "2011")){
+		idealcomp = "idk";
+	}
+	if ((CTN == "4106" && NetN == "2015") || (CTN == "4107" && NetN == "2015") || (CTN == "4112" && NetN == "2015") || (CTN == "4154" && NetN == "2015")){
+		idealcomp = 0.125;
+	}
+	if ((CTN == "4152" && NetN == "2006" && IdealOD > "8") || (CTN == "4152" && NetN == "2007" && IdealOD > "8")){
+		idealcomp = 0.35;
+	}
+	document.getElementById("IC").innerHTML = idealcomp;
+	
+
 
 	document.getElementById("final-answer").innerHTML = finalAnswer.toFixed(2);
 	
@@ -409,6 +460,7 @@ function OD() {
 }
 
 </script>
+
 
 </article>
 
