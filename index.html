@@ -269,6 +269,8 @@ table.style1 {
 		<option value="1.5">4153</option>
 		<option value="1.05">4107</option>
 		<option value="1.05">4154</option>
+		<option value="1.50">4101</option>
+		<option value="1.50">4114</option>
 	</select> <br>
 
 
@@ -388,16 +390,16 @@ function OD() {
 	let CTN = selectElement.options[selectElement.selectedIndex].text;
 	let idealcomp = 0;
 	
-	if ((CTN == "4152" && NetN == "2006") || (CTN == "4152" && NetN == "2007")){
+	if ((CTN == "4152" && NetN == "2006") || (CTN == "4152" && NetN == "2007") || (CTN == "4101" && NetN == "2006") || (CTN == "4101" && NetN == "2007") || (CTN == "4114" && NetN == "2006") || (CTN == "4114" && NetN == "2007")){
 		idealcomp = 0.25;
 	}
-	if (CTN == "4152" && NetN == "2009"){
+	if ((CTN == "4152" && NetN == "2009") || (CTN == "4101" && NetN == "2009") || (CTN == "4114" && NetN == "2009")){
 		idealcomp = 0.125;
 	}
-	if (CTN == "4152" && NetN == "2011"){
-		idealcomp = "N/A";
+	if ((CTN == "4152" && NetN == "2011") || (CTN == "4101" && NetN == "2011") || (CTN == "4114" && NetN == "2011")){
+		idealcomp = 0.05;
 	}
-	if (CTN == "4152" && NetN == "2015"){
+	if ((CTN == "4152" && NetN == "2015") || (CTN == "4101" && NetN == "2015") || (CTN == "4114" && NetN == "2015")){
 		idealcomp = 0.3;
 	}
 	if ((CTN == "4153" && NetN == "2006") || (CTN == "4153" && NetN == "2007")){
@@ -410,7 +412,7 @@ function OD() {
 		idealcomp = 0.05;
 	}
 	if (CTN == "4153" && NetN == "2015"){
-		idealcomp = "N/A";
+		idealcomp = 0.2;
 	}
 	if ((CTN == "4106" && NetN == "2006") || (CTN == "4106" && NetN == "2007") || (CTN == "4107" && NetN == "2007") || (CTN == "4107" && NetN == "2006") || (CTN == "4112" && NetN == "2007") || (CTN == "4112" && NetN == "2006") || (CTN == "4154" && NetN == "2007") || (CTN == "4154" && NetN == "2006")){
 		idealcomp = 0.05;
