@@ -194,22 +194,21 @@ table.style1 {
 	<tr>
 		<th>2015 (0.7 HDPE) </th>
 		<td>0.125 </td>
-		<td> </td>
+		<td> 0.2</td>
 		<td>0.3 </td>
 		<td>  </td>
 	</tr>
 
 	<tr>
 		<th>2011 (2.032 PP) </th>
-		<td>-0.1 - -0.09 </td>
+		<td rowspan="2">0.025 </td>
 		<td>0.05 </td>
-		<td> </td>
+		<td>0.075</td>
 		<td> </td>
 	</tr>
 
 	<tr>
 		<th>2009 (1.651 PP) </th>
-		<td>0.025 </td>
 		<td>0.075 </td>
 		<td>0.125 </td>
 		<td> </td>
@@ -390,43 +389,43 @@ function OD() {
 	let CTN = selectElement.options[selectElement.selectedIndex].text;
 	let idealcomp = 0;
 	
-	if ((CTN == "4152" && NetN == "2006") || (CTN == "4152" && NetN == "2007") || (CTN == "4101" && NetN == "2006") || (CTN == "4101" && NetN == "2007") || (CTN == "4114" && NetN == "2006") || (CTN == "4114" && NetN == "2007")){
+	if ((IdealOD < 8  && IdealOD > 7 && NetN == "2006") || (IdealOD < 8  && IdealOD > 7 && NetN == "2007")){
 		idealcomp = 0.25;
 	}
-	if ((CTN == "4152" && NetN == "2009") || (CTN == "4101" && NetN == "2009") || (CTN == "4114" && NetN == "2009")){
+	if (IdealOD < 8  && IdealOD > 7 && NetN == "2009"){
 		idealcomp = 0.125;
 	}
-	if ((CTN == "4152" && NetN == "2011") || (CTN == "4101" && NetN == "2011") || (CTN == "4114" && NetN == "2011")){
-		idealcomp = 0.05;
-	}
-	if ((CTN == "4152" && NetN == "2015") || (CTN == "4101" && NetN == "2015") || (CTN == "4114" && NetN == "2015")){
-		idealcomp = 0.3;
-	}
-	if ((CTN == "4153" && NetN == "2006") || (CTN == "4153" && NetN == "2007")){
-		idealcomp = 0.1;
-	}
-	if (CTN == "4153" && NetN == "2009"){
+	if ((IdealOD < 8  && IdealOD > 7 && NetN == "2011")){
 		idealcomp = 0.075;
 	}
-	if (CTN == "4153" && NetN == "2011"){
+	if ((IdealOD < 8  && IdealOD > 7 && NetN == "2015")){
+		idealcomp = 0.3;
+	}
+	if ((IdealOD < 7  && IdealOD > 5 && NetN == "2006") || (IdealOD < 7  && IdealOD > 5 && NetN == "2007")){
+		idealcomp = 0.1;
+	}
+	if (IdealOD < 7  && IdealOD > 5 && NetN == "2009"){
+		idealcomp = 0.075;
+	}
+	if (IdealOD < 7  && IdealOD > 5 && NetN == "2011"){
 		idealcomp = 0.05;
 	}
-	if (CTN == "4153" && NetN == "2015"){
+	if (IdealOD < 7  && IdealOD > 5 && NetN == "2015"){
 		idealcomp = 0.2;
 	}
-	if ((CTN == "4106" && NetN == "2006") || (CTN == "4106" && NetN == "2007") || (CTN == "4107" && NetN == "2007") || (CTN == "4107" && NetN == "2006") || (CTN == "4112" && NetN == "2007") || (CTN == "4112" && NetN == "2006") || (CTN == "4154" && NetN == "2007") || (CTN == "4154" && NetN == "2006")){
+	if ((IdealOD < 5  && IdealOD > 3 && NetN == "2006") || (IdealOD < 5  && IdealOD > 3 && NetN == "2007")){
 		idealcomp = 0.05;
 	}
-	if ((CTN == "4106" && NetN == "2009") || (CTN == "4107" && NetN == "2009") || (CTN == "4112" && NetN == "2009") || (CTN == "4154" && NetN == "2009")){
+	if ((IdealOD < 5  && IdealOD > 3 && NetN == "2009")){
 		idealcomp = 0.025;
 	}
-	if ((CTN == "4106" && NetN == "2011") || (CTN == "4107" && NetN == "2011") || (CTN == "4112" && NetN == "2011") || (CTN == "4154" && NetN == "2011")){
-		idealcomp = "idk";
+	if ((IdealOD < 5  && IdealOD > 3 && NetN == "2011")){
+		idealcomp = 0.025;
 	}
-	if ((CTN == "4106" && NetN == "2015") || (CTN == "4107" && NetN == "2015") || (CTN == "4112" && NetN == "2015") || (CTN == "4154" && NetN == "2015")){
+	if ((IdealOD < 5  && IdealOD > 3 && NetN == "2015")){
 		idealcomp = 0.125;
 	}
-	if ((CTN == "4152" && NetN == "2006" && IdealOD > "8") || (CTN == "4152" && NetN == "2007" && IdealOD > "8")){
+	if ((NetN == "2006" && IdealOD > "8") || (NetN == "2007" && IdealOD > "8")){
 		idealcomp = 0.35;
 	}
 	document.getElementById("IC").innerHTML = idealcomp;
