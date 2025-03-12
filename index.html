@@ -38,7 +38,7 @@
 			padding: 0px;
 			border-radius: 8px;
 			background-color: white;
-			box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 			margin-left:auto ;margin-right:auto;
 
 
@@ -218,7 +218,7 @@ table.style1 {
 		<th>2007 (1.168 PP) </th>
 		<td rowspan="2">0.05 </td>
 		<td rowspan="2">0.1 </td>
-		<td rowspan="2">0.25 </td>
+		<td rowspan="2">0.2 </td>
 		<td rowspan="2">0.35 </td>
 	</tr>
 
@@ -390,7 +390,7 @@ function OD() {
 	let idealcomp = 0;
 	
 	if ((IdealOD < 8  && IdealOD > 7 && NetN == "2006") || (IdealOD < 8  && IdealOD > 7 && NetN == "2007")){
-		idealcomp = 0.25;
+		idealcomp = 0.2;
 	}
 	if (IdealOD < 8  && IdealOD > 7 && NetN == "2009"){
 		idealcomp = 0.125;
@@ -562,8 +562,12 @@ function OD() {
 				<td>0.0075</td>
 			</tr>
 			<tr>
-				<td>RO</td>
+				<td>RO (6)</td>
 				<td>0.006</td>
+			</tr>
+			<tr>
+				<td>RO (5)</td>
+				<td>0.005</td>
 			</tr>
 			<tr>
 				<td>MNF</td>
