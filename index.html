@@ -146,13 +146,8 @@ table.style1 {
 <div class="lists">
 <ul class="myUL">
 	<li>Net length equal to folded membrane length</li>
-	<li>Tricot: first leaf typically 10” longer than remaining (to account for wrapping around CT)</li>
+	<li>Tricot: first leaf typically 7-10” longer than remaining (to account for 2-3 wraps around CT circumference)</li>
 		<ul>
-		<li>Why 10”?</li>
-			<ul>
-				<li>Could we set a certain # for wraps around the CT circumference</li>
-				<li>Currently 3-4</li>
-			</ul>
 		<li> Avoid tricot tail if possible (low-cost way of increasing OD)</li>
 		</ul>
 	<li>Tricot pack spacing:  calculated as CT circumference / # leaves</li>
@@ -174,11 +169,16 @@ table.style1 {
 		<li>MMF-0001 and 0002 (min – nom – max): 5.5 – 6.5 - 7.5 mil</li>
 		<li>MNF-0001 (min – nom – max): 6 – 7 - 7.5 mil</li>
 		<li>MUF-10K, 5K, 5KHR (min – nom – max): 7 – 7.5 - 9 mil</li>
-		<li>RO (min – nom – max): 5 mil</li>
+		<li>RO (min – nom – max): 5 - 6 mil</li>
 		</ul>
 <h2> Semi Auto Specialty Table Capabilities:</h2>
 
-	<li>Max membrane leaf length (folded): 44.5”</li>
+	<li>Max folded membrane leaf length</li>
+	<ul>
+		<li>7" Leader, 0.875" CT &rarr; 47.25"</li>
+		<li>10" Leader, 1.05" CT &rarr; 43.75"</li>
+		<li>10" Leader, 1.5" CT &rarr; 42.25"</li>
+		</ul>
 	<li>Max width: 40”</li>
 </ul>
 
@@ -222,7 +222,7 @@ table.style1 {
 		<th>2007 (1.168 PP) </th>
 		<td rowspan="2">0.05 </td>
 		<td rowspan="2">0.1 </td>
-		<td rowspan="2">0.2 </td>
+		<td rowspan="2">0.25 </td>
 		<td rowspan="2">0.35 </td>
 	</tr>
 
@@ -231,7 +231,7 @@ table.style1 {
 	</tr>
 </table>
 </div>
-<br><br>
+<br>
 
 
 
@@ -256,7 +256,7 @@ table.style1 {
 	<img id="my-image" src="element.png" style="display: none;">
 
 --->
-
+<h2>Element OD Calculator:</h2>
 <article>
  <div class="container">
 	<div class="box">
@@ -281,8 +281,9 @@ table.style1 {
 	<select id="Tricot-T" type="number" name="tricot">
   		<option value="0">Choose one</option>
    		<option value="0.01">3010</option>
-    		<option value="0.01">3004</option>
-    		<option value="other">Other</option>
+    	<option value="0.01">3004</option>
+		<option value="0.01">3005</option>
+    	<option value="other">Other</option>
 	</select> 
 		<label id="Tricot-T-input-label" style="display:none;"><br>Enter Tricot Thickness:</label>
 		<input id="Tricot-T-input" type="number" style="display:none;" placeholder="Enter Tricot Thickness">
@@ -394,7 +395,7 @@ function OD() {
 	let idealcomp = 0;
 	
 	if ((IdealOD < 8  && IdealOD > 7 && NetN == "2006") || (IdealOD < 8  && IdealOD > 7 && NetN == "2007")){
-		idealcomp = 0.2;
+		idealcomp = 0.25;
 	}
 	if (IdealOD < 8  && IdealOD > 7 && NetN == "2009"){
 		idealcomp = 0.125;
@@ -446,7 +447,7 @@ function OD() {
 		outputDiv.innerHTML = `
 			<img src ="MJ.png">
 			<p>*The Compression is less than 0*</p>
-			<p>Try one of these:</p> 
+			<p>Try the follow:</p> 
 			<ul class="myUL">
 				<li>Increase leave lengths</li>
 				<li>Increase # of leaves</li>
