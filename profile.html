@@ -69,7 +69,6 @@
             authDomain: "beerdex-87d10.firebaseapp.com",
             databaseURL: "https://beerdex-87d10-default-rtdb.firebaseio.com/",
             projectId: "beerdex-87d10",
-            storageBucket: "beerdex-87d10.appspot.com",
             messagingSenderId: "1056856047818",
             appId: "1:1056856047818:web:ac019e2e037bf15509b433"
         };
@@ -116,6 +115,7 @@ function updateUsername() {
 function uploadProfilePic() {
     const user = auth.currentUser;
     const fileInput = document.getElementById("profilePicInput");
+    const statusEl = document.getElementById("uploadStatus");
 
     if (fileInput.files.length === 0) {
         alert("Please select a file.");
@@ -127,6 +127,8 @@ function uploadProfilePic() {
 
     reader.onloadend = function () {
         const base64Image = reader.result.split(',')[1]; // Strip base64 header
+
+        statusEl.innerText = "Uploading...";
 
         fetch("https://api.imgur.com/3/image", {
             method: "POST",
@@ -147,21 +149,18 @@ function uploadProfilePic() {
                 // Save to Firebase Database
                 database.ref("users/" + user.uid).update({ profilePic: imageUrl }).then(() => {
                     document.getElementById("profilePic").src = imageUrl;
-                    alert("Profile picture updated!");
+                    statusEl.innerText = "Upload complete!";
                 });
             } else {
-                alert("Imgur upload failed.");
+                statusEl.innerText = "Imgur upload failed.";
                 console.error(data);
             }
         })
         .catch(error => {
-            alert("Upload error");
+            statusEl.innerText = "Upload error.";
             console.error(error);
         });
     };
-    document.getElementById("uploadStatus").innerText = "Uploading...";
-    document.getElementById("uploadStatus").innerText = "Upload complete!";
-    document.getElementById("uploadStatus").innerText = "Upload failed.";
 
     reader.readAsDataURL(file);
 }
